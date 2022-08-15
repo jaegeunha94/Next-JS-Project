@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Layout from '../components/Layout';
 import axios from 'axios';
+import Seo from '../components/Seo';
 
 class SSRTest extends React.Component {
   static async getInitialProps({ req }) {
@@ -21,6 +21,7 @@ class SSRTest extends React.Component {
 
     return (
       <>
+        <Seo title="SSR" />
         <ul>{userList}</ul>
       </>
     );

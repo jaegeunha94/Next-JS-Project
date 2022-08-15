@@ -1,9 +1,10 @@
 import Link from 'next/dist/client/link';
-import Layout from '../components/Layout';
+import Seo from '../components/Seo';
 
 export default function Home() {
   return (
     <>
+      <Seo title="Home" />
       <h1>안녕, Next.js</h1>
       <h2>
         <Link href="/about">
