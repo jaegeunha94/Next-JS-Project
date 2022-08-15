@@ -20,9 +20,9 @@ class SSRTest extends React.Component {
     ));
 
     return (
-      <Layout>
+      <>
         <ul>{userList}</ul>
-      </Layout>
+      </>
     );
   }
 }
