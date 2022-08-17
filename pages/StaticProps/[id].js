@@ -13,9 +13,21 @@ export default function Home({ data }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticPaths() {
   const { data } = await axios.get(
     `https://jsonplaceholder.typicode.com/users`
+  );
+
+  const paths = data.map((post) => ({
+    params: { id: post.username },
+  }));
+
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const { data } = await axios.get(
+    `https://jsonplaceholder.typicode.com/users/`
   );
   return {
     props: { data },
