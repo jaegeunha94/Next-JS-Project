@@ -1,8 +1,9 @@
 import * as React from 'react';
 import axios from 'axios';
-import Seo from '../components/Seo';
+import Seo from '../../components/Seo';
 
-export default function Home({ data }) {
+export default function Home({ data, server }) {
+  console.log(server);
   return (
     <div className="container">
       <Seo title="ServerProps" />
@@ -13,13 +14,15 @@ export default function Home({ data }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ query }) {
+  const { server } = query;
   const { data } = await axios.get(
-    'https://jsonplaceholder.typicode.com/users'
+    `https://jsonplaceholder.typicode.com/users`
   );
   return {
     props: {
       data,
+      server,
     },
   };
 }
