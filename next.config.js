@@ -1,5 +1,6 @@
 const API_KEY = process.env.API_KEY;
 module.exports = {
+  // pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
   reactStrictMode: true,
   async redirects() {
     return [
