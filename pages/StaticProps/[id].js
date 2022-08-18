@@ -1,8 +1,15 @@
 import * as React from 'react';
 import axios from 'axios';
 import Seo from '../../components/Seo';
+import { useRouter } from 'next/router';
 
 export default function Home({ data }) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="container">
       <Seo title="ServerProps" />
@@ -22,7 +29,7 @@ export async function getStaticPaths() {
     params: { id: post.username },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
