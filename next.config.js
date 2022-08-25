@@ -28,9 +28,9 @@ module.exports = {
         // and before all files including _next/public files which
         // allows overriding page files
         {
-          source: '/movies',
-          destination: '/movies/2',
-          has: [{ type: 'query', key: 'overrideMe' }],
+          source: '/movies/:path',
+          destination: '/about/',
+          // has: [{ type: 'query', key: 'overrideMe' }],
         },
       ],
       afterFiles: [
